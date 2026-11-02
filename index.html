@@ -1,1 +1,578 @@
-pagina web de Nerea
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f8">
+  <meta name="description" content="Perfil profesional de Nerea, técnica de seguridad operacional en el sector aéreo.">
+  <title>Nerea — Seguridad operacional</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172a3a;
+      --muted: #62727e;
+      --blue: #176b70;
+      --blue-dark: #105359;
+      --mint: #dcefeb;
+      --paper: #f5f7f8;
+      --white: #fff;
+      --line: #e3e9eb;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 20px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--blue);
+    }
+
+    .hero {
+      display: grid;
+      min-height: 570px;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 64px;
+      padding: 72px 0 82px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 22px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 610px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6.5vw, 78px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: 1.04;
+    }
+
+    h1 span {
+      color: var(--blue);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      max-width: 510px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 20px;
+      border: 1px solid var(--blue);
+      border-radius: 5px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--blue-dark);
+    }
+
+    .button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #78b9ad;
+      outline-offset: 4px;
+    }
+
+    .button-arrow {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .visual {
+      position: relative;
+      display: grid;
+      min-height: 365px;
+      overflow: hidden;
+      place-items: center;
+      border: 1px solid #d5e5e2;
+      border-radius: 48% 48% 5px 5px;
+      background:
+        radial-gradient(ellipse at 48% 42%, rgba(255,255,255,.92) 0 17%, transparent 17.5%),
+        linear-gradient(155deg, #e8f1ef 4%, #d7e9e5 54%, #c3ded8 100%);
+    }
+
+    .visual::before,
+    .visual::after {
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border: 1px solid rgba(23, 107, 112, .14);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .visual::after {
+      width: 230px;
+      height: 230px;
+    }
+
+    .orbit-label {
+      position: absolute;
+      z-index: 1;
+      top: 26px;
+      right: 24px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+    }
+
+    .flight-path {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 290px;
+      height: 150px;
+      border: 1px dashed rgba(23, 107, 112, .42);
+      border-color: rgba(23, 107, 112, .42) transparent transparent;
+      border-radius: 50%;
+      transform: translate(-50%, -40%) rotate(-24deg);
+    }
+
+    .plane {
+      position: relative;
+      z-index: 2;
+      color: var(--blue);
+      font-size: 72px;
+      line-height: 1;
+      transform: rotate(-35deg);
+    }
+
+    .visual-note {
+      position: absolute;
+      z-index: 2;
+      right: 20px;
+      bottom: 20px;
+      left: 20px;
+      padding: 17px 19px;
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 4px;
+      background: rgba(255,255,255,.85);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      backdrop-filter: blur(8px);
+    }
+
+    .visual-note strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .content-section {
+      padding: 76px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 64px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading .eyebrow {
+      margin: 8px 0 0;
+    }
+
+    h2 {
+      max-width: 650px;
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 47px);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.15;
+    }
+
+    .about-copy {
+      max-width: 690px;
+      margin: 0 0 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .expertise-card {
+      min-height: 190px;
+      padding: 25px 24px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 26px;
+      color: var(--blue);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .expertise-card h3 {
+      margin: 0 0 9px;
+      font-size: 15px;
+    }
+
+    .expertise-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .contact-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      margin: 0 0 64px;
+      padding: 42px;
+      border-radius: 6px;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .contact-section .eyebrow {
+      margin-bottom: 14px;
+      color: #a4d6ca;
+    }
+
+    .contact-section h2 {
+      max-width: 560px;
+      font-size: clamp(30px, 4vw, 42px);
+    }
+
+    .contact-copy {
+      max-width: 290px;
+      margin: 0;
+      color: #d2e0e2;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .site-footer {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(100% - 36px, 560px);
+      }
+
+      .site-header {
+        min-height: 72px;
+      }
+
+      .site-nav {
+        gap: 17px;
+      }
+
+      .site-nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 66px 0 58px;
+      }
+
+      .hero-copy {
+        font-size: 15px;
+      }
+
+      .visual {
+        min-height: 330px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .section-heading .eyebrow {
+        margin-top: 0;
+      }
+
+      .about-copy {
+        margin-left: 0;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .expertise-card {
+        min-height: 0;
+      }
+
+      .card-number {
+        margin-bottom: 18px;
+      }
+
+      .contact-section {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 42px;
+        padding: 30px 24px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand {
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .site-nav {
+        gap: 12px;
+      }
+
+      .site-nav a {
+        font-size: 11px;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 17px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Nerea, volver al inicio">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>Nerea</span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#perfil">Perfil</a>
+        <a href="#especialidad">Especialidad</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Seguridad operacional · Aviación</p>
+          <h1 id="hero-title">La seguridad,<br>en el <span>centro</span><br>de cada vuelo.</h1>
+          <p class="hero-copy">
+            Soy Nerea, técnica de seguridad operacional en una aerolínea.
+            Trabajo para impulsar operaciones seguras, identificar riesgos
+            y fortalecer una cultura de prevención.
+          </p>
+          <a class="button" href="#perfil">
+            Conoce mi perfil <span class="button-arrow" aria-hidden="true">↘</span>
+          </a>
+        </div>
+        <div class="visual" role="img" aria-label="Ilustración abstracta de una trayectoria de vuelo">
+          <span class="orbit-label">AVIACIÓN · SEGURIDAD · CONFIANZA</span>
+          <span class="flight-path" aria-hidden="true"></span>
+          <span class="plane" aria-hidden="true">✈</span>
+          <div class="visual-note">
+            <strong>Una mirada preventiva</strong>
+            Seguridad operacional con atención al detalle y visión de conjunto.
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="perfil" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <p class="eyebrow">Mi perfil</p>
+          <h2 id="profile-title">Contribuir a que cada operación sea más segura.</h2>
+        </div>
+        <p class="about-copy">
+          Desde mi trabajo en el sector aéreo, colaboro en la gestión de la
+          seguridad operacional y en la promoción de buenas prácticas. Me
+          interesa transformar la información y el aprendizaje del día a día
+          en acciones que ayuden a prevenir riesgos y mejorar continuamente.
+        </p>
+      </section>
+
+      <section class="content-section" id="especialidad" aria-labelledby="expertise-title">
+        <div class="section-heading">
+          <p class="eyebrow">Áreas de enfoque</p>
+          <h2 id="expertise-title">Una cultura de seguridad se construye en equipo.</h2>
+        </div>
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <span class="card-number">01</span>
+            <h3>Gestión de riesgos</h3>
+            <p>Identificar peligros y contribuir a la evaluación y mitigación de riesgos operacionales.</p>
+          </article>
+          <article class="expertise-card">
+            <span class="card-number">02</span>
+            <h3>Prevención y aprendizaje</h3>
+            <p>Apoyar una cultura abierta que aprende de la experiencia y busca prevenir incidentes.</p>
+          </article>
+          <article class="expertise-card">
+            <span class="card-number">03</span>
+            <h3>Mejora continua</h3>
+            <p>Colaborar con los equipos para revisar prácticas y reforzar la seguridad en la operación.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contact-title">La seguridad también empieza con una conversación.</h2>
+        </div>
+        <p class="contact-copy">
+          Me interesa intercambiar ideas sobre prevención y mejora continua en aviación.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Nerea Gonzalez · Seguridad operacional</p>
+      <p>Perfil profesional · Aviación</p>
+    </footer>
+  </div>
+</body>
+</html>
